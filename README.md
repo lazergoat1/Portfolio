@@ -61,7 +61,7 @@ Art assets made by Polygon Blacksmith https://assetstore.unity.com/packages/3d/c
 
 ![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/74234615/110719245-5df5e780-81c1-11eb-9390-b555573360f1.gif)
 
-City Builder is a Roblox game that I worked over the summer. I had planned to make a full fledged city builder but ended up stopping with a couple different building types and money generation. 
+City Builder is a Roblox game that I made over the summer. I had planned to make a full fledged city builder but ended up stopping with a couple different building types and money generation. I coded, modeled, and designed the game, the UI art assets are made by Kenny Game Assets.
 
 Project folder Title: Roblox
 
