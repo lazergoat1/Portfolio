@@ -63,6 +63,6 @@ Art assets made by Polygon Blacksmith https://assetstore.unity.com/packages/3d/c
 
 City Builder is a Roblox game that I worked over the summer. I had planned to make a full fledged city builder but ended up stopping with a couple different building types and money generation. 
 
-Project folder Title: Character Controllers
+Project folder Title: Roblox
 
 You can play the game here: https://www.roblox.com/games/5453024049/City?refPageId=93e99fee-16d4-4208-8a88-6b7a7b7550c6
