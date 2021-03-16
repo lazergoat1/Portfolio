@@ -1,7 +1,7 @@
 # About Me
 ##
 
-I'm a 17 year old highschool senior and game developer living in Topanga California. I am going to be attending DigiPen Institute of Technology in the fall to pursue my passion for game development.
+I'm a 17 year old high school senior and game developer living in Topanga California. I am going to be attending DigiPen Institute of Technology in the fall to pursue my passion for game development.
 
 I find the most interesting part of game development to be creating worlds that the player can explore and the character controller that they use to explore them. I also really enjoy learning new concepts and seeing the game come to life as I implement them. My passion for seeing game worlds come to life has led me to create many small projects over the past year and teach myself how to use multiple game engines and how to code in both C# and Lua. Currently I am working on making a prototype for a procedurally generated rpg in Unity which I hope to have finished by graduation in May. 
 
