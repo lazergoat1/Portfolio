@@ -23,7 +23,7 @@ Contact: aiden.stanton6422@gmail.com
 
 Single Realm is an in-progress 2D RPG that takes inspiration from Realm of the Mad God. Currently, you can fight one enemy type in a small map to gain XP. In the future, the game will have a procedurally generated map, an inventory system, and multiple enemy types.
 
-Project folder Title: Single Realm
+Project folder: Single Realm
 
 Art assets made by Ansimuz https://ansimuz.itch.io/top-down-adventure-assets
 	
@@ -35,7 +35,7 @@ Art assets made by Ansimuz https://ansimuz.itch.io/top-down-adventure-assets
 
 Inventory Crafting Demo is a crafting and inventory system demo for a survival game I was planning on making a couple of months ago. In it, you can collect resources and use them to craft items that allow you to mine rocks and cut down trees.
 
-Project folder Title: Island
+Project folder: Island
 
 Art assets made by Ada_King and CH Assets https://assetstore.unity.com/packages/3d/environments/landscapes/lowpoly-style-free-rocks-and-plants-145133 
 https://assetstore.unity.com/packages/3d/vegetation/trees/free-trees-103208
@@ -48,7 +48,7 @@ https://assetstore.unity.com/packages/3d/vegetation/trees/free-trees-103208
 
 Swing is a small game where the player tries to swing a ball around objects to get higher and stay away from the laser. Swing is my first finished Unity game. I designed the game, coded it, and created the art, sound effects, and music.
 
-Project folder Title: Quick Game
+Project folder: Quick Game
 
 You can play the game here: https://play.unity.com/mg/other/ball-game-4
 
@@ -60,7 +60,7 @@ You can play the game here: https://play.unity.com/mg/other/ball-game-4
 
 Character controllers contains customizable third-person and first-person controllers which allow the player to use the mouse and WASD keys to control the movement of the character. I developed this a couple of months ago as a tool I could use for my future projects. 
 
-Project folder Title: Character Controllers
+Project folder: Character Controllers
 
 Art assets made by Polygon Blacksmith https://assetstore.unity.com/packages/3d/characters/creatures/dungeon-skeletons-demo-71087
 
@@ -75,6 +75,6 @@ Art assets made by Polygon Blacksmith https://assetstore.unity.com/packages/3d/c
 
 City Builder is a Roblox game that I made over the summer. In the game, you place buildings that generate money and then upgrade them to generate more money. I had planned to make a full-fledged city builder but ended up stopping with a couple of different building types and money generation. I coded, modeled, and designed the game, the UI art assets are made by Kenny Game Assets.
 
-Project folder Title: Roblox
+Project folder: Roblox
 
 You can play the game here: https://www.roblox.com/games/5453024049/City?refPageId=93e99fee-16d4-4208-8a88-6b7a7b7550c6
