@@ -1,52 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RadialGradient : MonoBehaviour
 {
-    //TEXTURE SETTINGS
-    public int texWidth = 512;
-    public int texHeight = 512;
- 
-    //MASK SETTINGS
-    public float maskThreshold = 2.0f;
- 
-    //REFERENCES
-    public Texture2D mask;
- 
-/*    private void Start()
+    public static float[,] GenerateGradient(int width, int height, float gradientThreshold, Vector2 center, float intencityPoint, float intensity)
     {
-    GenerateTexture();
-    }
+        float[,] values = new float[width, height];
 
-    void GenerateTexture()
-    {
-        mask = new Texture2D(texWidth, texHeight, TextureFormat.RGBA32, true);
-
-        Vector2 maskCenter = new Vector2(texWidth * 0.5f, texHeight * 0.5f);
-
-        for (int y = 0; y < mask.height; ++y)
+        for (int y = 0; y < height; ++y)
         {
-            for (int x = 0; x < mask.width; ++x)
+            for (int x = 0; x < width; ++x)
             {
-
-                float distFromCenter = Vector2.Distance(maskCenter, new Vector2(x, y));
-
+                float DistanceFromCenter = Vector2.Distance(center, new Vector2(x, y));
                 float currentAlpha = 1;
 
-                if ((1 - (distFromCenter / texWidth)) >= 0)
+                if (DistanceFromCenter / width >= 0)
                 {
-                    currentAlpha = (1 - (DistanceFromCenter / size));
+                    if(DistanceFromCenter <= intencityPoint)
+                    {
+                        currentAlpha = (gradientThreshold - (DistanceFromCenter / width) + (intensity - DistanceFromCenter / width));
+                    }
+                    else
+                    {
+                        currentAlpha = (gradientThreshold - (DistanceFromCenter / width));
+                    }
                 }
                 else
                 {
                     currentAlpha = 0;
                 }
 
-                Color color = new Color(currentAlpha, currentAlpha, currentAlpha, currentAlpha);
-                texture.SetPixel(x, y, color);
+                values[x, y] = currentAlpha;
+
             }
         }
-        mask.Apply();
-    }*/
+        return values;
+    }
 }

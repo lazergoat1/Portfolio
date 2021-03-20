@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de64f307292aa8349ab4baa923f76300, type: 3}
-  m_Name: Desert
+  m_Name: Stone
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 11400000, guid: a5f59c57d54dea14ea6d0ce60d42ca59, type: 2}
-  minHeight: 0.4
+  - {fileID: 11400000, guid: 0178eff93c8535441b41ac8604d81c54, type: 2}
+  minHeight: 0.7
   minMoisture: 0
-  minHeat: 0.5
+  minHeat: 0

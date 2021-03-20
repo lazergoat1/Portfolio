@@ -40,10 +40,14 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 0
       enableTightPacking: 0
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: b8814c83d33f044eaa43a507df945000, type: 3}
+    totalSpriteSurfaceArea: 27648
     bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 4199987276705543466, guid: b8814c83d33f044eaa43a507df945000, type: 3}
@@ -263,5 +267,6 @@ SpriteAtlas:
   - tileset-world_39
   - tileset-world_29
   - tileset-world_28
+  m_RenderDataMap: {}
   m_Tag: Sprite Atlas
   m_IsVariant: 0

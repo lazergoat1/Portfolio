@@ -7,26 +7,16 @@ public class GenerateTileMap : MonoBehaviour
 {
     public BiomePreset[] biomes;
     public Tilemap tilemap;
-    public GenerateMap map;
+    public MapValues mapValues;
+    public Transform player;
 
-    [Header("Dimensions")]
-    public int width;
-    public int height;
-    public float scale;
-    public int seed;
-    public float noise;
-    [Range(0, 1)]
-    public float persistance;
-    public float lacunarity;
-    public Vector2 offset;
-
-    [Header("Height Map")]
-    public int heightOctaves;
-    public float[,] heightMap;
+    public static Vector2 playerPosition;
 
     public bool updateEverySeconds = false;
     public float updateDelay;
     float delay = 0;
+
+    float[,] heightMap;
 
     void Start()
     {
@@ -41,38 +31,33 @@ public class GenerateTileMap : MonoBehaviour
         {
             if (delay <= 0)
             {
+                tilemap.ClearAllTiles();
                 GenerateMap();
                 delay = updateDelay;
             }
         }
     }
-
+  
     void GenerateMap()
     {
-        tilemap.ClearAllTiles();
+        heightMap = Noise.GenerateNoise(mapValues.width, mapValues.height, mapValues.seed, mapValues.offsetX, mapValues.offsetY, mapValues.scale, mapValues.octaves, mapValues.persistance, mapValues.lacunarity);
 
-        if (scale <= 0)
+        Vector2 center = new Vector2(mapValues.width * 0.5f, mapValues.height * 0.5f);
+        float[,] gradientMap = RadialGradient.GenerateGradient(mapValues.width, mapValues.height, mapValues.gradientThreshold, center, mapValues.gradientIntensityPoint, mapValues.gradientIntensity);
+
+        for (int x = 0; x < mapValues.width; ++x)
         {
-            scale = 0.001f;
-        }
-
-        heightMap = Noise.GenerateNoise(map.width, map.height, map.seed, map.offsetX, map.offsetY, map.scale, map.octaves, map.persistance, map.lacunarity);
-
-        for (int x = 0; x < map.width; ++x)
-        {
-            for (int y = 0; y < map.height; ++y)
+            for (int y = 0; y < mapValues.height; ++y)
             {
-                tilemap.SetTile(new Vector3Int(x, y, 0), GetBiome(heightMap[x, y]));
+                tilemap.SetTile(new Vector3Int(x, y, 0), GetBiome(Mathf.Clamp01(heightMap[x, y] + gradientMap[x, y])));
             }
         }
     }
 
     private TileBase GetBiome(float height)
     {
-
         TileBase tile = biomes[0].PickRandomTile();
         float minHeight = 0f;
-        print(height);
 
         foreach (BiomePreset biome in biomes)
         {
@@ -84,16 +69,4 @@ public class GenerateTileMap : MonoBehaviour
         }
         return tile;
     }
-    private void OnValidate()
-    {
-        if (width < 1)
-        {
-            width = 1;
-        }
-        if (height < 1)
-        {
-            height = 1;
-        }
-    }
-
 }

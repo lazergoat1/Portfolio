@@ -6,26 +6,12 @@ using UnityEngine.UI;
 public class DisplayTexture : MonoBehaviour
 {
     public RawImage image;
-    public GenerateMap map;
-
-    public int height;
-    public int width;
-
-    public float noise;
-    float scale;
-
-    float offsetX;
-    float offsetY;
+    public Transform player;
+    public MapValues mapValues;
 
     private void Update()
     {
-        scale = map.scale;
-        offsetX = map.offsetX;
-        offsetY = map.offsetY;
-        width = map.width;
-        height = map.height;
-
-        float[,] noiseMap = Noise.GenerateNoise(width, height, map.seed, offsetX, offsetY, scale, map.octaves, map.persistance, map.lacunarity);
+        float[,] noiseMap = Noise.GenerateNoise(mapValues.width, mapValues.height, mapValues.seed, mapValues.offsetX, mapValues.offsetY, mapValues.scale, mapValues.octaves, mapValues.persistance, mapValues.lacunarity);
 
         image.texture = GenerateTexture(noiseMap);
     }
@@ -35,6 +21,9 @@ public class DisplayTexture : MonoBehaviour
         int width = noiseMap.GetLength(0);
         int height = noiseMap.GetLength(1);
 
+        Vector2 center = new Vector2(width * 0.5f, height * 0.5f);
+        float[,] gradientMap = RadialGradient.GenerateGradient(mapValues.width, mapValues.height, mapValues.gradientThreshold, center, mapValues.gradientIntensityPoint, mapValues.gradientIntensity);
+
         Texture2D texture = new Texture2D(width, height);
 
         Color[] colorMap = new Color[width * height];
@@ -43,7 +32,7 @@ public class DisplayTexture : MonoBehaviour
         {
             for (int x = 0; x < width; x++)
             {
-                colorMap[y * width + x] = Color.Lerp(Color.black, Color.white, noiseMap[x, y]);
+                colorMap[y * width + x] = Color.Lerp(Color.black, Color.white, noiseMap[x, y] + gradientMap[x, y]);
             }
         }
 

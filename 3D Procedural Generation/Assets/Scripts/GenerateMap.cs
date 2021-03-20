@@ -7,31 +7,17 @@ public class GenerateMap : MonoBehaviour
     public GameObject parent;
     public GameObject prefab;
 
-    public int height;
-    public int width;
+    public MapValues mapValues;
 
-    public int seed;
     public float noise;
-
-    public float scale;
-    public float sizeMultiplier;
-
-    public int octaves;
-    [Range(0, 1)]
-    public float persistance;
-    public float lacunarity;
-
-
-    public float offsetX;
-    public float offsetY;
-
+ 
     public bool updateEverySeconds;
     public float updateDelay;
     float delay = 0;
 
     private void Start()
     {
-       Generate();
+      Generate();
     }
 
     private void Update()
@@ -55,20 +41,20 @@ public class GenerateMap : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
 
-        if (scale <= 0)
+        if (mapValues.scale <= 0)
         {
-            scale = 0.001f;
+            mapValues.scale = 0.001f;
         }
 
-        float[,] noiseMap = Noise.GenerateNoise(width, height, seed, offsetX, offsetY, scale, octaves, persistance, lacunarity);
+        float[,] noiseMap = Noise.GenerateNoise(mapValues.width, mapValues.height, mapValues.seed, mapValues.offsetX, mapValues.offsetY, mapValues.scale, mapValues.octaves, mapValues.persistance, mapValues.lacunarity);
 
-        for (int x = 0; x < width; x++)
+        for (int x = 0; x < mapValues.width; x++)
         {
-            for (int y = 0; y < height; y++)
+            for (int y = 0; y < mapValues.height; y++)
             {
                 noise = noiseMap[x, y];
 
-                GameObject newCube = Instantiate(prefab, new Vector3(x, noise * sizeMultiplier, y), Quaternion.identity);
+                GameObject newCube = Instantiate(prefab, new Vector3(x, noise * mapValues.sizeMultiplier, y), Quaternion.identity);
 
                 Color color = Color.Lerp(Color.black, Color.white, noise);
                 newCube.gameObject.GetComponent<Renderer>().material.color = color;
@@ -79,18 +65,18 @@ public class GenerateMap : MonoBehaviour
 
     private void OnValidate()
     {
-        if(octaves <= 0)
+        if(mapValues.octaves <= 0)
         {
-            octaves = 1;
+            mapValues.octaves = 1;
         }
 
-        if (width < 1)
+        if (mapValues.width < 1)
         {
-            width = 1;
+            mapValues.width = 1;
         }
-        if (height < 1)
+        if (mapValues.height < 1)
         {
-            height = 1;
+            mapValues.height = 1;
         }
     }
 

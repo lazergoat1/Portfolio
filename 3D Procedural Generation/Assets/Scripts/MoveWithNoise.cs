@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MoveWithNoise : MonoBehaviour
 {
-    //public Vector2 perlinPosition;
     public float noise;
     public float multiplier;
 

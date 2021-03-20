@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiles:
   - {fileID: 11400000, guid: 0771e748445821540a00710da431cb24, type: 2}
-  minHeight: 0.4
+  minHeight: 0.5
   minMoisture: 0
   minHeat: 0
