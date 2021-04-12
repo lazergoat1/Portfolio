@@ -14,12 +14,22 @@ public class GenerateTileMap : MonoBehaviour
 
     public bool updateEverySeconds = false;
     public float updateDelay;
-    float delay = 0;
+    private float delay = 0;
 
-    float[,] heightMap;
+    private NoiseMapParameters heightMapValues;
+    private GradientMapValues gradientMapValues;
+
+    private float[,] heightMap;
+
+    private System.Random random;
 
     void Start()
     {
+        random = new System.Random(mapValues.seed);
+        gradientMapValues = mapValues.gradientMapParameters;
+
+        heightMapValues = mapValues.heightMapParameters;
+
         GenerateMap();
     }
 
@@ -38,25 +48,29 @@ public class GenerateTileMap : MonoBehaviour
         }
     }
   
-    void GenerateMap()
+    private void GenerateMap()
     {
-        heightMap = Noise.GenerateNoise(mapValues.width, mapValues.height, mapValues.seed, mapValues.offsetX, mapValues.offsetY, mapValues.scale, mapValues.octaves, mapValues.persistance, mapValues.lacunarity);
+        heightMap = Noise.GenerateNoise(mapValues.width, mapValues.height, mapValues.seed, heightMapValues.offsetX, heightMapValues.offsetY, mapValues.scale, heightMapValues.octaves, heightMapValues.persistance, heightMapValues.lacunarity);
 
         Vector2 center = new Vector2(mapValues.width * 0.5f, mapValues.height * 0.5f);
-        float[,] gradientMap = RadialGradient.GenerateGradient(mapValues.width, mapValues.height, mapValues.gradientThreshold, center, mapValues.gradientIntensityPoint, mapValues.gradientIntensity);
+        float[,] gradientMap = RadialGradient.GenerateGradient(mapValues.width, mapValues.height, gradientMapValues.gradientThreshold, center, gradientMapValues.gradientIntensityPoint, gradientMapValues.gradientIntensity);
 
         for (int x = 0; x < mapValues.width; ++x)
         {
             for (int y = 0; y < mapValues.height; ++y)
             {
-                tilemap.SetTile(new Vector3Int(x, y, 0), GetBiome(Mathf.Clamp01(heightMap[x, y] + gradientMap[x, y])));
+                BiomePreset biome = GetBiome(Mathf.Clamp01(heightMap[x, y] + gradientMap[x, y]));
+
+                tilemap.SetTile(new Vector3Int(x, y, 0), biome.PickRandomTile());
+
+                //tilemap.SetTile(new Vector3Int(x, y, 0), SpawnFoliage(biome));
             }
         }
     }
 
-    private TileBase GetBiome(float height)
+    private BiomePreset GetBiome(float height)
     {
-        TileBase tile = biomes[0].PickRandomTile();
+        BiomePreset ChosenBiome = biomes[0];
         float minHeight = 0f;
 
         foreach (BiomePreset biome in biomes)
@@ -64,9 +78,19 @@ public class GenerateTileMap : MonoBehaviour
             if (height >= biome.minHeight && biome.minHeight >= minHeight)
             {
                 minHeight = biome.minHeight;
-                tile = biome.PickRandomTile();
+                ChosenBiome = biome;
             }
+            
         }
-        return tile;
+        return ChosenBiome;
     }
+
+    private void SpawnFoliage(BiomePreset biome, Vector3 position)
+    {
+        if (random.NextDouble() > 1 - (biome.foliageSpawnPercentage / 100))
+        {
+            Instantiate(biome.PickRandomFoliage(), position, Quaternion.identity);
+        }
+    }
+
 }

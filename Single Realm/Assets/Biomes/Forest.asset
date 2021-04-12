@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3f45b34ea9cba54c8bc1aeaa17c2e08, type: 3}
+  m_Name: Forest
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: 1f0926b79bf68d44c839047bb6be38d9, type: 2}
+  foliagePrefabs:
+  - name: Trees
+    weight: 700
+    Prefabs:
+    - {fileID: 1068266891687089874, guid: 9a1a7972f73dd004d8992b326c1582dd, type: 3}
+    - {fileID: 1068266891687089874, guid: c1f4981bad6a5cc4582fdee65e8983c0, type: 3}
+  - name: Brush
+    weight: 1000
+    Prefabs:
+    - {fileID: 1068266891687089874, guid: 74fdb3f705d03384aabb9107fca8afd0, type: 3}
+    - {fileID: 1068266891687089874, guid: cf9b2a5119aadb64baded5fe7b362844, type: 3}
+    - {fileID: 1068266891687089874, guid: 981ea93858a3fc34c94d412caf6f289e, type: 3}
+    - {fileID: 1068266891687089874, guid: d944777601c328e45881d78ca1db7c9b, type: 3}
+  - name: Dead Tree
+    weight: 100
+    Prefabs:
+    - {fileID: 1068266891687089874, guid: b46fb8b0c39358948becd71450414b63, type: 3}
+  enemyPrefabs:
+  - name: Grunts
+    weight: 700
+    Prefabs:
+    - {fileID: 7443452832600014475, guid: ba2af234c83abaa43b6b25681c3b4ac2, type: 3}
+  foliageSpawnPercentage: 60
+  enemySpawnPercentage: 1
+  minHeight: 0.4

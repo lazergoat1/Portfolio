@@ -6,6 +6,7 @@ using TMPro;
 public class Popup : MonoBehaviour
 {
     public float dissappearSpeed = 0.5f;
+    public float speed;
 
     private TextMeshPro textMesh;
     private float dissappearTimer;
@@ -14,6 +15,7 @@ public class Popup : MonoBehaviour
     private void Awake()
     {
         textMesh = transform.GetComponent<TextMeshPro>();
+        this.gameObject.transform.SetParent(FindObjectOfType<Canvas>().transform);
     }
 
     public static Popup Create(Vector3 position, int popupValue, GameObject popupToCreate)
@@ -34,8 +36,6 @@ public class Popup : MonoBehaviour
 
     private void Update()
     {
-        float speed = 0.2f;
-
         transform.position += new Vector3(0, speed * Time.deltaTime);
         dissappearTimer -= Time.deltaTime;
 

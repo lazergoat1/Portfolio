@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3f45b34ea9cba54c8bc1aeaa17c2e08, type: 3}
+  m_Name: Stone
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: 4e7f1b3afdc6d9f4288c1d712c974e87, type: 2}
+  foliagePrefabs:
+  - name: Stone
+    weight: 100
+    Prefabs:
+    - {fileID: 1068266891687089874, guid: 7c823e8a534cdf84cb71c4f25e26d87d, type: 3}
+    - {fileID: 1068266891687089874, guid: c96d71ca1ffc91440a436b2185707f0c, type: 3}
+    - {fileID: 1068266891687089874, guid: d1f5dc007ad79e84bbb6ee81c6c1f619, type: 3}
+  enemyPrefabs:
+  - name: Grunts
+    weight: 700
+    Prefabs:
+    - {fileID: 7443452832600014475, guid: b1a8059e37e21a84c8486a179c6def60, type: 3}
+  foliageSpawnPercentage: 60
+  enemySpawnPercentage: 1
+  minHeight: 0.65

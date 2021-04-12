@@ -14,6 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiles:
   - {fileID: 11400000, guid: a5f59c57d54dea14ea6d0ce60d42ca59, type: 2}
-  minHeight: 0.4
+  foliagePrefabs:
+  - {fileID: 2627996567880765424, guid: 5b7714f55b7a92a4c8d7296bfae67455, type: 3}
+  foliageMapParameters:
+    octaves: 4
+    persistance: 0.5
+    lacunarity: 2
+    offsetX: 0
+    offsetY: 0
+  minHeight: 0.2
   minMoisture: 0
-  minHeat: 0.5
+  foliageSpawnPercentage: 2

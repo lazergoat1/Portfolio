@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8970bcae89ae2c45b01cc4f766edb93, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  health: 100
-  xp: 20
+  player: {fileID: 0}
+  health: 1000
+  xp: 0
   level: 0
-  currentHealth: 90
+  position: {x: 2.2273865, y: 36.257298, z: 0}

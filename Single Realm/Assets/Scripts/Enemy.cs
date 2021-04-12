@@ -2,7 +2,6 @@
 
 public class Enemy : MonoBehaviour
 {
-    public Animator animator;
     public SpriteRenderer spriteRenderer;
 
     public Rigidbody2D rb;
@@ -47,12 +46,7 @@ public class Enemy : MonoBehaviour
         AimlessMove();
         if (player)
         {
-            animator.SetBool("isAttacking", true);
             Shoot(player.transform);
-        }
-        else
-        {
-            animator.SetBool("isAttacking", false);
         }
     }
 
@@ -84,34 +78,12 @@ public class Enemy : MonoBehaviour
 
             _newMovePointDelay = newMovePointDelay;
         }
+        Vector2 moveDirection = (movePoint - (Vector2)transform.position).normalized;
 
         if (movePoint != null)
         {
-            transform.position = Vector2.MoveTowards(rb.position, movePoint, speed * Time.deltaTime);
+            rb.velocity = moveDirection * speed * Time.deltaTime;
         }
-
-        Vector2 moveDirection = (movePoint - (Vector2)transform.position).normalized;
-
-        if (!animator.GetBool("isAttacking"))
-        {
-            if (moveDirection.x > 0)
-            {
-                spriteRenderer.flipX = true;
-            }
-            else if (moveDirection.x < 0)
-            {
-                spriteRenderer.flipX = false;
-            }
-
-            animator.SetFloat("vertical", moveDirection.y);
-            animator.SetFloat("horizontal", moveDirection.x);
-            animator.SetBool("isMoving", true);
-        }
-        else
-        {
-            animator.SetBool("isMoving", false);
-        }
-
     }
 
     void Rotate(Transform targetToLookAt)
@@ -128,8 +100,6 @@ public class Enemy : MonoBehaviour
         {
             spriteRenderer.flipX = true;
         }
-
-        animator.SetFloat("angle", angle);
     }
 
 
@@ -139,7 +109,7 @@ public class Enemy : MonoBehaviour
 
         if (_shootDelay <= 0f)
         {
-                Rotate(target);
+            Rotate(target);
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Vector2 direction = ((Vector2)target.position - (Vector2)bullet.transform.position).normalized;
@@ -174,6 +144,5 @@ public class Enemy : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, range);
     }
-
 }
 

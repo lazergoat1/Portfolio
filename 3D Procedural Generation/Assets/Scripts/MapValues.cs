@@ -5,15 +5,14 @@ using UnityEngine.Tilemaps;
 
 public class MapValues : MonoBehaviour
 {
-    public BiomePreset[] biomes;
-    public Tilemap tilemap;
+    public NoiseMapParameters heightMapParameters;
+    public NoiseMapParameters moistureMapParameters;
 
+    public GradientMapValues gradientMapParameters;
+
+    [Header("Hieght Map Values")]
     public int width;
     public int height;
-    public float gradientThreshold;
-    public float gradientIntensity;
-    public float gradientIntensityPoint;
-
     public int seed;
     public float sizeMultiplier;
     public float scale = 50f;
@@ -24,6 +23,15 @@ public class MapValues : MonoBehaviour
 
     public float offsetX;
     public float offsetY;
+
+    public BiomePreset[] biomes;
+    public Tilemap tilemap;
+
+    [Header("Gradient Values")]
+    public float gradientThreshold;
+    public float gradientIntensity;
+    public float gradientIntensityPoint;
+
 
     private void OnValidate()
     {
@@ -36,4 +44,24 @@ public class MapValues : MonoBehaviour
             height = 1;
         }
     }
+}
+
+[System.Serializable]
+public class NoiseMapParameters
+{
+    public int octaves = 4;
+    [Range(0, 1)]
+    public float persistance = 0.5f;
+    public float lacunarity = 2f;
+
+    public float offsetX;
+    public float offsetY;
+}
+
+[System.Serializable]
+public class GradientMapValues
+{
+    public float gradientThreshold;
+    public float gradientIntensity;
+    public float gradientIntensityPoint;
 }

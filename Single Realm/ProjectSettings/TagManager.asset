@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Tilemap
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Tilemap
   - Water
   - UI
   - 

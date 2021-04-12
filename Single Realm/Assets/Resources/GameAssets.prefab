@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f940b3e33f1c7cd45baac631ba71d729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpPopup: {fileID: 5804086751500166888, guid: 8b0c1d3b920a1794c99c275ec217c6aa, type: 3}
-  damagePopup: {fileID: 5804086751500166888, guid: 3e9e340c35acd1146b0e3bde6d62ffba,
+  player: {fileID: 0}
+  xpPopup: {fileID: 8455596213045589166, guid: 483294758e470004f932aee119063960, type: 3}
+  damagePopup: {fileID: 8455596213045589166, guid: 3e9e340c35acd1146b0e3bde6d62ffba,
     type: 3}

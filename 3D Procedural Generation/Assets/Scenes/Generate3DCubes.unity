@@ -405,6 +405,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &670900618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 670900619}
+  m_Layer: 0
+  m_Name: Objects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &670900619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670900618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.702347, y: 16.60591, z: -1528.9448}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920756506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.8, y: 64.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 459243507}
@@ -1012,10 +1042,10 @@ GameObject:
   - component: {fileID: 1988166798}
   - component: {fileID: 1988166801}
   - component: {fileID: 1988166797}
-  - component: {fileID: 1988166793}
   - component: {fileID: 1988166796}
-  - component: {fileID: 1988166795}
   - component: {fileID: 1988166800}
+  - component: {fileID: 1988166793}
+  - component: {fileID: 1988166795}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1092,7 +1122,7 @@ MonoBehaviour:
   tilemap: {fileID: 1900033975}
   mapValues: {fileID: 1988166799}
   player: {fileID: 920756507}
-  updateEverySeconds: 1
+  updateEverySeconds: 0
   updateDelay: 1
 --- !u!114 &1988166797
 MonoBehaviour:
@@ -1109,6 +1139,7 @@ MonoBehaviour:
   player: {fileID: 920756507}
   mapValues: {fileID: 1988166799}
   tilemap: {fileID: 1900033975}
+  foliageParent: {fileID: 670900618}
   biomes:
   - {fileID: 11400000, guid: daaf8cb3c6a613843a9d8c0f33600f2a, type: 2}
   - {fileID: 11400000, guid: e147e626bcc086b41bb945bf37635ace, type: 2}
@@ -1116,7 +1147,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8cc06995ece830c489fad40ebf25f5de, type: 2}
   - {fileID: 11400000, guid: c3eb212d9219ce3458e57975a670fcee, type: 2}
   chunkSize: 10
-  maxLoadDistance: 100
+  maxLoadDistance: 50
 --- !u!114 &1988166798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1144,21 +1175,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec199d3896737f4abb213de5ac6b3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  biomes: []
-  tilemap: {fileID: 1900033975}
-  width: 1000
-  height: 1000
-  gradientThreshold: 0
-  gradientIntensity: 0.7
-  gradientIntensityPoint: 1000
-  seed: 2312
+  heightMapParameters:
+    octaves: 4
+    persistance: 0.5
+    lacunarity: 2
+    offsetX: 0
+    offsetY: 0
+  moistureMapParameters:
+    octaves: 4
+    persistance: 0.5
+    lacunarity: 2
+    offsetX: 0
+    offsetY: 0
+  gradientMapParameters:
+    gradientThreshold: 0
+    gradientIntensity: 0.5
+    gradientIntensityPoint: 200
+  width: 100
+  height: 100
+  seed: 2310
   sizeMultiplier: 10
-  scale: 100
+  scale: 50
   octaves: 4
   persistance: 0.68
   lacunarity: 2
   offsetX: 0
   offsetY: 0
+  biomes: []
+  tilemap: {fileID: 1900033975}
+  gradientThreshold: 0
+  gradientIntensity: 0.5
+  gradientIntensityPoint: 200
 --- !u!114 &1988166800
 MonoBehaviour:
   m_ObjectHideFlags: 0

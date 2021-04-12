@@ -6,10 +6,11 @@ public class HealthBar : MonoBehaviour
 {
     private Transform bar;
 
-    private void Start()
+    private void Awake()
     {
         bar = transform.Find("Bar");
     }
+
     public void ChangeSize(float startingHealth, float currentHealth)
     {
         float sizeNormalized = currentHealth / startingHealth; 
