@@ -22,7 +22,7 @@ Contact: aiden.stanton6422@gmail.com
 
 ** IN PROGRESS **
 
-Single Realm is an in-progress 2D RPG that takes inspiration from Realm of the Mad God. Currently, you can fight enemies to gain XP and explore the games procedurally generated map. The game has a procedural generation system that generates a new map every time you create a new world and a save and load system which allows your progress and world to be saved. In the future, it will have an inventory system and multiple enemy types.
+Single Realm is an in-progress 2D RPG that takes inspiration from Realm of the Mad God. Currently, you can fight enemies to gain XP and explore the games endless procedurally generated map. The game has a procedural generation system that generates a new map every time you create a new world and a save and load system which allows your progress and world to be saved. In the future, it will have an inventory system and multiple enemy types.
 
 Project folder: Single Realm
 
